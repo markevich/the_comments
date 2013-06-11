@@ -1,4 +1,4 @@
-module TheCommentsIpController
+module Concerns::TheCommentsIpController
   extend ActiveSupport::Concern
 
   included do

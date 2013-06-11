@@ -1,4 +1,4 @@
-module TheCommentsUser
+module Concerns::TheCommentsUser
   extend ActiveSupport::Concern
 
   included do

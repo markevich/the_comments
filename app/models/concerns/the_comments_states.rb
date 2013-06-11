@@ -1,4 +1,4 @@
-module TheCommentsStates
+module Concerns::TheCommentsStates
   extend ActiveSupport::Concern
 
   included do

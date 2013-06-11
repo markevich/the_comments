@@ -1,4 +1,4 @@
-module TheCommentsBlackIp
+module Concerns::TheCommentsBlackIp
   extend ActiveSupport::Concern
   
   included do

@@ -1,4 +1,4 @@
-module TheCommentsBase
+module Concerns::TheCommentsBase
   extend ActiveSupport::Concern
 
   included do
@@ -10,7 +10,7 @@ module TheCommentsBase
     acts_as_nested_set scope: [:commentable_type, :commentable_id]
 
     # Comments State Machine
-    include TheCommentsStates
+    include Concerns::TheCommentsStates
 
     # TheSortableTree
     include TheSortableTree::Scopes

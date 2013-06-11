@@ -1,4 +1,4 @@
-module TheCommentsBlackUserAgent
+module Concerns::TheCommentsBlackUserAgent
   extend ActiveSupport::Concern
 
   included do

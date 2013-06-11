@@ -1,4 +1,4 @@
-module TheCommentsController
+module Concerns::TheCommentsController
   COMMENTS_COOKIES_TOKEN = 'JustTheCommentsCookies'
 
   # Cookies and View token for spam protection
@@ -17,7 +17,7 @@ module TheCommentsController
     private
 
     def set_the_comments_cookies
-      cookies[:the_comment_cookies] = { value: TheCommentsController::COMMENTS_COOKIES_TOKEN, expires: 1.year.from_now }
+      cookies[:the_comment_cookies] = { value: Concerns::TheCommentsController::COMMENTS_COOKIES_TOKEN, expires: 1.year.from_now }
       cookies[:comments_view_token] = { value: SecureRandom.hex, expires: 7.days.from_now } unless cookies[:comments_view_token]
     end
   end
@@ -31,7 +31,7 @@ module TheCommentsController
     extend ActiveSupport::Concern
 
     included do
-      include TheCommentsController::ViewToken
+      include Concerns::TheCommentsController::ViewToken
 
       before_action -> { @errors = [] }
 
@@ -167,7 +167,7 @@ module TheCommentsController
 
     # Protection tricks
     def cookies_required
-      unless cookies[:the_comment_cookies] == TheCommentsController::COMMENTS_COOKIES_TOKEN
+      unless cookies[:the_comment_cookies] == Concerns::TheCommentsController::COMMENTS_COOKIES_TOKEN
         @errors << [t('the_comments.cookies'), t('the_comments.cookies_required')].join(' ')
         return render(json: { errors: @errors })
       end

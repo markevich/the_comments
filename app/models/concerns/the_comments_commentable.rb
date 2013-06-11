@@ -1,4 +1,4 @@
-module TheCommentsCommentable
+module Concerns::TheCommentsCommentable
   extend ActiveSupport::Concern
 
   included do

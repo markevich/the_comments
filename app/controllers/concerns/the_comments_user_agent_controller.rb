@@ -1,4 +1,4 @@
-module TheCommentsUserAgentController
+module Concerns::TheCommentsUserAgentController
   # extend ActiveSupport::Concern
   # included do; end
   def index
